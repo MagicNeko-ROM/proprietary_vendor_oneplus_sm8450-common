@@ -1,5 +1,0 @@
-# PENDING-BLOBS(CPH2415_15.0.0.700)
-#
-# 本文件是 device/oneplus/sm8450-common/extract-files.py 的输入清单，最终从
-# CPH2415_15.0.0.700(EX01) 解包目录重新生成。当前为占位空清单。
-# 禁止使用 15.0.0.1301 及之后的 blobs。
