@@ -8,7 +8,6 @@ soong_namespace {
         "hardware/oplus",
         "hardware/qcom-caf/sm8450",
         "hardware/qcom-caf/wlan",
-        "hardware/pixelworks",
         "vendor/qcom/opensource/commonsys-intf/display",
         "vendor/qcom/opensource/commonsys/display",
         "vendor/qcom/opensource/dataservices",
@@ -6859,76 +6858,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libpwirisfeature",
-    owner: "oneplus",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libpwirisfeature.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libhidlbase",
-                "libbase",
-                "libbinder_ndk",
-                "vendor.pixelworks.hardware.feature@1.0",
-                "vendor.pixelworks.hardware.feature@1.1",
-                "vendor.pixelworks.hardware.feature-V1-ndk_platform",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libpwirishalwrapper",
-    owner: "oneplus",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libpwirishalwrapper.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libutils",
-                "libcutils",
-                "android.hardware.graphics.common@1.2",
-                "libhardware",
-                "libsdmcore",
-                "libqdMetaData",
-                "libpwirisfeature",
-                "libhidlbase",
-                "libhidltransport",
-                "vendor.pixelworks.hardware.display@1.0",
-                "vendor.pixelworks.hardware.display@1.1",
-                "vendor.pixelworks.hardware.display@1.2",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libqapesdk",
     owner: "oneplus",
     strip: {
@@ -12261,51 +12190,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "sensors.ssc",
-    owner: "oneplus",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/sensors.ssc.so",
-            ],
-            shared_libs: [
-                "libsns_direct_channel_stub",
-                "libadsprpc",
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
-                "liblog",
-                "libsnsapi",
-                "libssc",
-                "libsnsdiaglog",
-                "libutils",
-                "libcutils",
-                "libsensorslog",
-                "libhardware",
-                "libhidlbase",
-                "libjsoncpp",
-                "libui",
-                "libcwb_client_vendor",
-                "vendor.oplus.hardware.cwb@1.0",
-                "android.hardware.sensors@2.0",
-                "android.hardware.sensors@2.1",
-                "android.hardware.sensors@2.0-ScopedWakelock",
-                "android.hardware.graphics.mapper@4.0",
-                "vendor.qti.hardware.display.mapper@4.0",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libasphere",
     owner: "oneplus",
     strip: {
@@ -12830,7 +12714,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    soc_specific: true,
+    system_ext_specific: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12855,7 +12739,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    soc_specific: true,
+    system_ext_specific: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12880,7 +12764,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    soc_specific: true,
+    system_ext_specific: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12908,7 +12792,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    soc_specific: true,
+    system_ext_specific: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12933,7 +12817,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    soc_specific: true,
+    system_ext_specific: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12958,7 +12842,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    soc_specific: true,
+    system_ext_specific: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12983,7 +12867,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    soc_specific: true,
+    system_ext_specific: true,
 }
 
 cc_prebuilt_library_shared {
@@ -18630,6 +18514,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     system_ext_specific: true,
 }
@@ -18747,6 +18632,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     system_ext_specific: true,
 }
@@ -19269,6 +19155,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     system_ext_specific: true,
 }
@@ -20094,7 +19981,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    device_specific: true,
+    system_ext_specific: true,
 }
 
 android_app_import {
@@ -22380,6 +22267,7 @@ cc_prebuilt_binary {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -23384,6 +23272,7 @@ cc_prebuilt_binary {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     strip: {
         none: true,
     },

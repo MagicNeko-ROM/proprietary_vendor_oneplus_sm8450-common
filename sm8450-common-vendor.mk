@@ -562,8 +562,6 @@ PRODUCT_PACKAGES += \
     libprekill \
     libprocomp \
     libpsmoptfeature \
-    libpwirisfeature \
-    libpwirishalwrapper \
     libqapesdk \
     libqc2audio_base \
     libqc2audio_basecodec \
@@ -737,7 +735,6 @@ PRODUCT_PACKAGES += \
     qtiPeripheralMgr \
     qtiril-utils \
     qtiwakelock \
-    sensors.ssc \
     libasphere \
     libshoebox \
     vendor.display.color@1.0 \
@@ -1204,7 +1201,6 @@ PRODUCT_PACKAGES += \
     horae \
     qccsyshal@1.2-service \
     tcmd \
-    wfdservice \
     android.hardware.drm@1.4-service.widevine \
     vendor.oplus.hardware.charger-V6-service \
     oplus_sensor_fb
