@@ -1,0 +1,18 @@
+//
+// Automatically generated file. DO NOT MODIFY
+//
+// PENDING-BLOBS(CPH2415_15.0.0.700): 由 device/oneplus/sm8450-common/setup-makefiles.py
+// 重新生成。当前仅为 soong_namespace 骨架。
+//
+
+soong_namespace {
+    imports: [
+        "device/oneplus/sm8450-common",
+        "hardware/qcom-caf/sm8450",
+        "hardware/qcom-caf/wlan",
+        "hardware/oplus",
+        "vendor/qcom/opensource/commonsys/display",
+        "vendor/qcom/opensource/commonsys-intf/display",
+        "vendor/qcom/opensource/dataservices",
+    ],
+}
