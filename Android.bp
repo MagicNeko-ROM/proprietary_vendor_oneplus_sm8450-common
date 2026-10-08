@@ -23613,3 +23613,34 @@ cc_prebuilt_binary {
     prefer: true,
     device_specific: true,
 }
+
+cc_prebuilt_library_shared {
+    name: "libdisplayconfig.qti",
+    // t23: 让预编译（10T 原版 / 与作者 22.1 同一份，148904 B）胜出源码编的那份（110208 B）
+    //   机制：同名 + prefer: true；源码模块在 hardware/qcom-caf/sm8450/display/services/config/src
+    check_elf_files: false,
+    owner: "oneplus",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libdisplayconfig.qti.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libhidlbase",
+                "libutils",
+                "vendor.display.config@2.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
