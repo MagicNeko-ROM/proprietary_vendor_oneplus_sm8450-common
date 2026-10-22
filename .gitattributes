@@ -1,0 +1,2 @@
+# Third-party Adreno driver blobs (~93 MB). Kept out of the normal object
+# store; see gpu-q3/README for provenance.

@@ -351,9 +351,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/egl/eglSubDriverAndroid.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/egl/eglSubDriverAndroid.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/egl/eglSubDriverAndroid.so",
+                ],
+            }),
             shared_libs: [
                 "libEGL_adreno",
                 "libcutils",
@@ -394,9 +399,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/egl/libEGL_adreno.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/egl/libEGL_adreno.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/egl/libEGL_adreno.so",
+                ],
+            }),
             shared_libs: [
                 "libadreno_utils",
                 "libgsl",
@@ -424,9 +434,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/egl/libGLESv1_CM_adreno.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/egl/libGLESv1_CM_adreno.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/egl/libGLESv1_CM_adreno.so",
+                ],
+            }),
             shared_libs: [
                 "libgsl",
                 "libcutils",
@@ -453,9 +468,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/egl/libGLESv2_adreno.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/egl/libGLESv2_adreno.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/egl/libGLESv2_adreno.so",
+                ],
+            }),
             shared_libs: [
                 "libadreno_utils",
                 "libgsl",
@@ -484,9 +504,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/egl/libVkLayer_ADRENO_qprofiler.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so",
+                ],
+            }),
             shared_libs: [
                 "liblog",
                 "libz",
@@ -510,9 +535,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/egl/libq3dtools_adreno.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/egl/libq3dtools_adreno.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/egl/libq3dtools_adreno.so",
+                ],
+            }),
             shared_libs: [
                 "libcutils",
                 "liblog",
@@ -538,9 +568,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/egl/libq3dtools_esx.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/egl/libq3dtools_esx.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/egl/libq3dtools_esx.so",
+                ],
+            }),
             shared_libs: [
                 "libcutils",
                 "liblog",
@@ -566,9 +601,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so",
+                ],
+            }),
             shared_libs: [
                 "libbase",
                 "libcutils",
@@ -1248,9 +1288,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/vulkan.adreno.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/hw/vulkan.adreno.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/hw/vulkan.adreno.so",
+                ],
+            }),
             shared_libs: [
                 "libadreno_utils",
                 "libgsl",
@@ -1705,9 +1750,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libCB.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/libCB.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/libCB.so",
+                ],
+            }),
             shared_libs: [
                 "libcutils",
                 "liblog",
@@ -1996,9 +2046,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libOpenCL.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/libOpenCL.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/libOpenCL.so",
+                ],
+            }),
             shared_libs: [
                 "libcutils",
                 "libvndksupport",
@@ -2524,9 +2579,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libadreno_app_profiles.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/libadreno_app_profiles.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/libadreno_app_profiles.so",
+                ],
+            }),
             shared_libs: [
                 "libcutils",
                 "libhardware",
@@ -2557,9 +2617,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libadreno_utils.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/libadreno_utils.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/libadreno_utils.so",
+                ],
+            }),
             shared_libs: [
                 "libgsl",
                 "libc++",
@@ -4492,9 +4557,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libgsl.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/libgsl.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/libgsl.so",
+                ],
+            }),
             shared_libs: [
                 "libcutils",
                 "liblog",
@@ -4750,9 +4820,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libkcl.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/libkcl.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/libkcl.so",
+                ],
+            }),
             shared_libs: [
                 "libc++",
                 "libc",
@@ -4774,9 +4849,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libkernelmanager.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/libkernelmanager.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/libkernelmanager.so",
+                ],
+            }),
             shared_libs: [
                 "libc++",
                 "libc",
@@ -5011,9 +5091,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libllvm-glnext.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/libllvm-glnext.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/libllvm-glnext.so",
+                ],
+            }),
             shared_libs: [
                 "libgsl",
                 "liblog",
@@ -5037,9 +5122,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libllvm-qcom.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/libllvm-qcom.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/libllvm-qcom.so",
+                ],
+            }),
             shared_libs: [
                 "libc++",
                 "libc",
@@ -5061,9 +5151,14 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libllvm-qgl.so",
-            ],
+            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
+                "true": [
+                    "gpu-q3/lib64/libllvm-qgl.so",
+                ],
+                "false": [
+                    "proprietary/vendor/lib64/libllvm-qgl.so",
+                ],
+            }),
             shared_libs: [
                 "libgsl",
                 "liblog",

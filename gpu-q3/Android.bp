@@ -1,0 +1,14 @@
+//
+// Third-party Adreno graphics stack, taken from the Meta Quest 3
+// Adreno driver package V@0837.0.7 (module id adreno_gpu_driver v2.3).
+//
+// NOT an official Qualcomm release.
+//
+// The shared libraries here are referenced directly from the OEM prebuilt
+// module definitions in vendor/oneplus/sm8450-common/Android.bp, which use
+// Soong select() on the soong_config variable gpu_oplus.driver_q3 to pick
+// between these files and the original OEM blobs. No module is declared in
+// this directory on purpose: declaring one would install the same path twice.
+//
+// Files are stored through Git LFS, see .gitattributes.
+//
