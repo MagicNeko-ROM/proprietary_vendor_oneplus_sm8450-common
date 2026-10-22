@@ -601,14 +601,9 @@ cc_prebuilt_library_shared {
     },
     target: {
         android_arm64: {
-            srcs: select(soong_config_variable("gpu_oplus", "driver_q3"), {
-                "true": [
-                    "gpu-q3/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so",
-                ],
-                "false": [
-                    "proprietary/vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so",
-                ],
-            }),
+            srcs: [
+                "proprietary/vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so",
+            ],
             shared_libs: [
                 "libbase",
                 "libcutils",
@@ -1318,6 +1313,7 @@ cc_prebuilt_library_shared {
                 "libc",
                 "libm",
                 "libdl",
+                "libbase",
             ],
         },
     },
@@ -1778,6 +1774,7 @@ cc_prebuilt_library_shared {
                 "libc",
                 "libm",
                 "libdl",
+                "libadreno_utils",
             ],
         },
     },
@@ -2061,6 +2058,7 @@ cc_prebuilt_library_shared {
                 "libc",
                 "libm",
                 "libdl",
+                "liblog",
             ],
         },
     },
@@ -2631,6 +2629,8 @@ cc_prebuilt_library_shared {
                 "libc",
                 "libm",
                 "libdl",
+                "liblog",
+                "libnativewindow",
             ],
         },
     },
@@ -5135,6 +5135,7 @@ cc_prebuilt_library_shared {
                 "libc",
                 "libm",
                 "libdl",
+                "liblog",
             ],
         },
     },
@@ -23775,4 +23776,29 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     prefer: true,
     vendor: true,
+}
+
+// Mesa Turnip (freedreno) Vulkan driver, from the Banners-Turnip
+// v27.0.0-20261020 build (Mesa main 4b0f64c, Vulkan 1.4.363).
+// Installed as vulkan.freedreno.so next to the OEM vulkan.adreno.so; which
+// one the platform loads is decided by ro.hardware.vulkan, so both can ship
+// in the same image and the switch stays a property change.
+cc_prebuilt_library_shared {
+    name: "vulkan.freedreno",
+    stem: "vulkan.freedreno",
+    owner: "magicneko",
+    vendor: true,
+    compile_multilib: "64",
+    relative_install_path: "hw",
+    strip: {
+        none: true,
+    },
+    shared_libs: [
+        "libhardware",
+        "liblog",
+        "libnativewindow",
+        "libsync",
+        "libz",
+    ],
+    srcs: ["gpu-q3/turnip/vulkan.freedreno.so"],
 }
