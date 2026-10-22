@@ -3594,6 +3594,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libutils",
                 "libdisplaydebug",
+                "libbase",
                 "libtinyxml2_1",
                 "libc++",
                 "libc",
@@ -3675,6 +3676,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libutils",
                 "libdisplaydebug",
+                "libsdmutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -9738,6 +9740,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsdmextension.so",
             ],
             shared_libs: [
+                "libbase",
                 "libdisplaydebug",
                 "libsdmutils",
                 "libdisplayqos",
@@ -10090,7 +10093,7 @@ cc_prebuilt_library_shared {
                 "libdisplaydebug",
                 "libsdm-color",
                 "libbinder",
-                "libtinyxml2",
+                "libtinyxml3",
                 "libsdmutils",
                 "libdrm",
                 "libdigital-dimming",
@@ -12714,7 +12717,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    system_ext_specific: true,
+    vendor: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12739,7 +12742,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    system_ext_specific: true,
+    vendor: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12764,7 +12767,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    system_ext_specific: true,
+    vendor: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12817,7 +12820,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    system_ext_specific: true,
+    vendor: true,
 }
 
 cc_prebuilt_library_shared {
@@ -18617,7 +18620,7 @@ cc_prebuilt_library_shared {
                 "libaudioclient",
                 "libaudiofoundation",
                 "audioclient-types-aidl-cpp",
-                "android.media.audio.common.types-V2-cpp",
+                "android.media.audio.common.types-V4-cpp",
                 "libwfdmmsrc_system",
                 "libwfdavenhancements",
                 "libhidlbase",
@@ -19151,6 +19154,7 @@ cc_prebuilt_library_shared {
                 "libc",
                 "libm",
                 "libdl",
+                "libprotobuf-cpp-full-21.7",
             ],
         },
     },
@@ -19981,7 +19985,11 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    system_ext_specific: true,
+    // 2026-10-11：安装位置修正 —— 源文件取自 odm/lib64，原厂也在 /odm；
+    //   此前误声明为 system_ext_specific，使 /odm/bin/hw 的 charger-V6-service
+    //   在自身 namespace 里找不到它（logcat: library "...charger-V6-ndk_platform.so" not found）。
+    //   唯一使用者就是那个 odm 服务（已核对 Android.bp 全量引用）。
+    soc_specific: true,
 }
 
 android_app_import {
@@ -22263,6 +22271,7 @@ cc_prebuilt_binary {
                 "libc",
                 "libm",
                 "libdl",
+                "libbase_shim",
             ],
         },
     },
@@ -23268,6 +23277,7 @@ cc_prebuilt_binary {
                 "libc",
                 "libm",
                 "libdl",
+                "libprotobuf-cpp-lite-21.12",
             ],
         },
     },
@@ -23643,4 +23653,31 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     prefer: true,
     soc_specific: true,
+}
+
+// SHIM(ovaltine): the OEM blob libsnapdragoncolor-manager is ABI-locked to the OEM
+// libtinyxml2 (smaller XMLDocument layout than the AOSP 11.0 build). Expose the OEM
+// binary under a private soname so both worlds can coexist.
+cc_prebuilt_library_shared {
+    name: "libtinyxml3",
+    owner: "oneplus",
+    stem: "libtinyxml3",
+    strip: {
+        none: true,
+    },
+    shared_libs: [
+        "liblog",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
+    ],
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libtinyxml3.so"],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    vendor: true,
 }
