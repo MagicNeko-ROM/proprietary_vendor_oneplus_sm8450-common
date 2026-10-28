@@ -41,6 +41,9 @@ on property:vendor.qti.qcc.oper.mode=6
     chmod 0660 /data/misc/qcc/conf/qcc.conf
 
 service qccsyshal@1.2-service /system/system_ext/bin/qccsyshal@1.2-service
+    # Broken on this platform: needs google::protobuf::Message::
+    # CopyWithSourceCheck, absent from the libprotobuf-cpp-lite here.
+    disabled
     class hal
     user system
     group misc system

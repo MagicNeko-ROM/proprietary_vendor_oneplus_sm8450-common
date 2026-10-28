@@ -1,4 +1,8 @@
 service qguard /vendor/bin/qguard
+    # Broken on this platform: needs android::base::WriteStringToFd(
+    # std::string const&, borrowed_fd), removed by the libbase in this
+    # tree. Never starts successfully, so keep init from retrying it.
+    disabled
     class late_start
     user root
     group system readproc
