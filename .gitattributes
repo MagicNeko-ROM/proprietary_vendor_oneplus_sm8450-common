@@ -1,2 +1,14 @@
-# Third-party Adreno driver blobs (~93 MB). Kept out of the normal object
-# store; see gpu-q3/README for provenance.
+# Third-party Adreno driver blobs (~93 MB in total). Stored as REGULAR git
+# objects on purpose.
+#
+# History: these were converted to Git LFS by `git lfs migrate import
+# --above=50MB` on the build node, but the LFS objects were never pushed
+# successfully -- every oid returns 404 from the server. The entities were
+# recovered from a build output tree (byte sizes match the original pointers
+# exactly) and are now tracked as plain blobs.
+#
+# Size check: the largest file here is 55 MB. GitHub's hard limit is 100 MB
+# per file, so plain git storage is fine. Pushes will show a soft warning
+# above 50 MB (GH001); that warning is expected and harmless.
+#
+# Provenance of the driver package: see gpu-q3/README.
